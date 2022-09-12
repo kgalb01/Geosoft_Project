@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<head>
+  <title> Geosoftware 1 Project </title>
+  <header>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--Bootstrap stylesheet -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Leaflet stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+      integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+      crossorigin="" />
+
+    <!-- Mapbox stylesheets -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css" rel="stylesheet" />
+
+    <!-- Leaflet libary -->
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+      integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+      crossorigin=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+
+    <!--jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <!-- Turf libary -->
+    <script src='https://unpkg.com/@turf/turf@6/turf.min.js'></script>
+
+    <!-- Bootstrap libary -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+
+    <!-- Popper libary -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+
+    <!-- Icon libary -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+
+    <!-- own scripts -->
+    <script defer src="public/main.js"></script>
+    <script defer src="public/locationcreation.js"></script>
+
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light white card-header">
+
+      <!-- Navbar brand -->
+      <a class="navbar-brand" href="#">
+        Geosoftware 1 Project</a>
+
+      <!-- Collapse button -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Collapsible content -->
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <!-- Links -->
+        <div class="navbar-nav">
+          <a class="nav-link" href="/">Mountain Map
+            <ion-icon name="map-outline" style="color:#000000"></ion-icon>
+          </a>
+
+          <a class="nav-item nav-link" href="locationcreator.html" target="_blank">
+            Mountain Creator
+            <span class="sr-only">(current)</span>
+            <ion-icon name="locate-outline" style="color:#000000"></ion-icon>
+          </a>
+
+          <a class="nav-link" href="/item">Database Content
+            <ion-icon name="albums-outline" style="color:#000000"></ion-icon>
+          </a>
+
+          <a class="nav-link" href="impressum.html">Impressum
+            <ion-icon name="newspaper-outline" style="color:#000000"></ion-icon>
+          </a>
+
+          <!-- Icon that opens Kieran's GitHub repository for the Geosoftware 1 Assignment 6 -->
+          <a class="nav-item nav-link" href="https://github.com/kgalb01/" target="_blank">
+            GitHub
+            <ion-icon name="logo-github" style="color:#000000"></ion-icon>
+          </a>
+
+        </div>
+      </div>
+    </nav>
+    </div>
+
+    <header>
+      <div class="col-12 text-center">
+        <h1 class="font-weight-light">Mountain Creator</h1>
+        <p class="lead">Location management with database</p>
+        <br>
+      </div>
+    </header>
+  </header>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="container">
+          <p><strong>Enter the Name, Elevation and URL to create a mountain and click the "Confirm" button to send it to the database and to display it on the map</strong></p>
+
+          <br><label for='name'><strong>Name</strong></label>
+          <input type='text' id='name'>
+
+          <br><label for='elev'><strong>Elevation</strong></label>
+          <input type='number' id='elev' min='0' max='000'>
+
+          <br><label for='url'><strong>URL</strong> </label>
+          <input type='text' id='url'> <button type='button' onclick="forwardGeocoding()">Confirm</button></br></br>
+
+          <br><br>
+          <div class="container" align="left">
+            <strong>Click the Database checklist button to view the list of stored items in the database and select them
+              to delete or update them</strong>
+            <br>
+            <button type="button" onclick="displayDatabaseData()">Database checklist</button>
+            <ul id='ul'><br /></ul>
+
+
+            <div class="container" align="left">
+              <button type="button" onclick="dataDeleter()">Delete <br> location(s)</button>
+              <button type="button" onclick="nameUpdater()">Update <br> name</button>
+              <br></br>
+              <div class="textarea" id="updateTextarea"></div><br>
+              <button id='updateButton' type="button" onclick="nameServerUpdater()">Confirm name</button>
+              <br></br>
+              <button type='button' onclick="getLocation()">Your Location</button> </br>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="container" id="result"> </div>
+        <div class="container" id="locationCreatorMap" style='height: 400px'></div>
+      </div>
+    </div>
+
+    <footer class="page-footer font-small blue">
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3 card-footer">© 2022 Copyright: Arne Wilberg, Kieran Galbraith
+      </div>
+      <!-- Copyright -->
+    </footer>
+
+</body>
+
+</html>

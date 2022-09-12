@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<head>
+  <title> Geosoftware 1 Project </title>
+  <header>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--Bootstrap stylesheet -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Leaflet stylesheets -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+      integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+      crossorigin="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
+
+    <!-- Leaflet libary -->
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+      integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+      crossorigin=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+
+    <!--jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <!-- Turf libary -->
+    <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
+
+    <!-- Bootstrap libary -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+
+    <!-- Popper libary -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+
+    <!-- Icon libary -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    
+    <!-- Mapbox libary -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+
+    <!-- Mapbox Directions API -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css" />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.css' rel='stylesheet' />  
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/0.35.0/mapbox-gl.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/0.35.0/mapbox-gl.js"></script>
+
+    <!-- Mapbox Geocoding -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.min.js'></script>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.css' type='text/css' />
+
+    <!-- Mapbox Draw -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.0/mapbox-gl-draw.js'></script>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.0/mapbox-gl-draw.css' type='text/css'/>
+
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- own scripts -->
+    <script defer src="public/map.js"></script>
+    <script defer src="public/main.js"></script>
+
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light white card-header">
+
+      <!-- Navbar brand -->
+      <a class="navbar-brand" href="#">
+       <strong>Geosoftware 1 Project</strong> </a>
+
+      <!-- Collapse button -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Collapsible content -->
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <!-- Links -->
+        <div class="navbar-nav">
+          <a class="nav-link" href="/">Mountain Map
+            <ion-icon name="map-outline" style="color:#000000"></ion-icon>
+            <span class="sr-only">(current)</span>
+          </a>
+
+          <a class="nav-item nav-link" href="locationcreator.html" target="_blank">
+            Mountain Creator
+            <ion-icon name="locate-outline" style="color:#000000"></ion-icon>
+          </a>
+
+          <a class="nav-item nav-link" href="impressum.html" target="_blank">
+            Impressum
+            <ion-icon name="newspaper-outline" style="color:#000000"></ion-icon>
+          </a>
+
+          <a class="nav-link" href="/item">Database Content
+            <ion-icon name="albums-outline" style="color:#000000"></ion-icon>
+          </a>
+
+          <!-- Icon that opens my GitHub repository for the Geosoftware 1 Assignments -->
+          <a class="nav-item nav-link" href="https://github.com/kgalb01/" target="_blank">
+            GitHub
+            <ion-icon name="logo-github" style="color:#000000"></ion-icon>
+          </a>
+
+        </div>
+      </div>
+    </nav>
+    </div>
+
+    <header>
+      <div class="col-12 text-center">
+        <h1 class="font-weight-light">Mountain Map</h1>
+        <p class="lead">User added information and locations of mountains in Europe<br>
+      </div>
+    </header>
+  </header>
+
+</head>
+
+<!-- geocoder search input -->
+<div class="geocoder">
+  <div id="geocoder" ></div>
+</div>
+<!-- left side instructions -->
+<div id='instructions'>
+  <div id="calculated-line"></div>
+</div>
+
+  <div class="container" id="mountainMap" style= 'height: 400px'></div>
+
+  <style>
+    #instructions {
+        position:absolute;
+        height:400px;
+        margin:auto;
+        width: 175px;
+        top:auto;
+        bottom:auto;
+        padding:auto;
+        background-color: rgba(255,255,255,0.9);
+        overflow-y: scroll;
+        font-family: serif;
+    }
+
+</style>
+
+  <p align="center"><strong>Database</strong></p>
+  <div class="container" align="center">
+    <button type="button" onclick="displayDatabaseData()">Database Data</button>
+    <button type="submit" onclick="valueConverter()">Show mountain information</button>
+    <button type="button" onclick="getRoutingLocation()">Show me the route</button>
+  </div>
+  <ul id="ul" align="center"><br></ul>
+
+  <p align="center"><br><strong>Mountain information</strong><br></p>
+  <table id="resultJS" style="width:75%" align="center" border="thin">
+    <thead style="text-align:center">
+      <tr>
+        <th>Name</th>
+        <th>Elevation</th>
+        <th>Coordinates</th>
+        <th>Wikipedia</th>
+      </tr>
+    </thead>
+    <tbody align="center">
+      <tr>
+        <td id="name0"></td>
+        <td id="elevation0"></td>
+        <td id="coordinates0"></td>
+        <td id="wiki0"></td>
+
+      </tr>
+      <tr>
+        <td id="name1"></td>
+        <td id="elevation1"></td>
+        <td id="coordinates1"></td>
+        <td id="wiki1"></td>
+      </tr>
+      <tr>
+        <td id="name2"></td>
+        <td id="elevation2"></td>
+        <td id="coordinates2"></td>
+        <td id="wiki2"></td>
+      </tr>
+      <tr>
+        <td id="name3"></td>
+        <td id="elevation3"></td>
+        <td id="coordinates3"></td>
+        <td id="wiki3"></td>
+      </tr>
+      <tr>
+        <td id="name4"></td>
+        <td id="elevation4"></td>
+        <td id="coordinates4"></td>
+        <td id="wiki4"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <footer class="page-footer font-small blue">
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3 card-footer">© 2022 Copyright: Arne Wilberg, Kieran Galbraith
+    </div>
+    <!-- Copyright -->
+  </footer>
+</body>
+</html>

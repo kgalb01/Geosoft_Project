@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<head>
+  <title> Geosoftware 1 Project </title>
+  <header>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--Bootstrap stylesheet -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Leaflet stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+      integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+      crossorigin="" />
+
+    <!-- Mapbox stylesheets -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css" rel="stylesheet" />
+
+    <!-- Leaflet libary -->
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+      integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+      crossorigin=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+
+    <!--jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <!-- Turf libary -->
+    <script src='https://unpkg.com/@turf/turf@6/turf.min.js'></script>
+
+    <!-- Bootstrap libary -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+
+    <!-- Popper libary -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+
+    <!-- Icon libary -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light white card-header">
+
+      <!-- Navbar brand -->
+      <a class="navbar-brand" href="#">
+        Geosoftware 1 Project</a>
+
+      <!-- Collapse button -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Collapsible content -->
+      <div class="collapse navbar-collapse" id="navbar">
+
+        <!-- Links -->
+        <div class="navbar-nav">
+          <a class="nav-link" href="/">Mountain Map
+            <ion-icon name="map-outline" style="color:#000000"></ion-icon>
+          </a>
+
+          <a class="nav-item nav-link" href="locationcreator.html" target="_blank">
+            Mountain Creator
+            <ion-icon name="locate-outline" style="color:#000000"></ion-icon>
+          </a>
+
+          <a class="nav-link" href="/item">Database Content
+            <ion-icon name="albums-outline" style="color:#000000"></ion-icon>
+          </a>
+
+          <a class="nav-item nav-link" href="impressum.html" target="_blank">
+            Impressum
+            <span class="sr-only">(current)</span>
+            <ion-icon name="locate-outline" style="color:#000000"></ion-icon>
+          </a>
+
+          <!-- Icon that opens Kieran's GitHub repository for the Geosoftware 1 Assignment 6 -->
+          <a class="nav-item nav-link" href="https://github.com/kgalb01/" target="_blank">
+            GitHub
+            <ion-icon name="logo-github" style="color:#000000"></ion-icon>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <header>
+      <div class="col-12 text-center">
+        <h1 class="font-weight-light">Impressum</h1>
+        <p class="lead">Information about this web application and it's creators</p>
+        <br>
+      </div>
+    </header>
+  </header>
+</head>
+
+<section class="col-sm-12">
+  <div class="box">
+
+      <p style="font-size: 14px;"><strong>Angaben gemäß § 5 TMG:</strong> Geosoftware 1: Project<br><br>
+          <strong>Postanschrift: </strong> Institut für Geoinformatik,  Heisenbergstraße 2, 48149 Münster<br><br>
+          <strong>Kontakt: </strong>
+          <a href="k_galb01@uni-muenster.de" target="_top"> ✉ k_galb01@uni-muenster.de</a><br>
+          <br><strong>Urheberrechtliche Hinweise: </strong> Arne Wilberg, Kieran Galbraith<br>
+          <br><strong>Verantwortlich für den Inhalt dieser Webanwendung sind: </strong> Arne Wilberg, Kieran Galbraith
+          <br></p>
+
+  </div>
+
+  <div class="box">
+
+      <h2><strong>Bekannte Bugs:</strong></h2>
+      <p style="font-size: 14px;">
+          <br>- Es ist lediglich möglich eine Fahrradroute vom Nutzer zum Gebirge zu erstellen. Navigation mit dem Auto bietet diese Webanwendung noch nicht
+          <br>- Es ist bisher nur möglich den Namen eines Gebirges zu verändern, nicht seine Höhe
+          <br>- Wenn man oft auf den "Update Name"-Button klickt kommen mehrere Texteingabefelder
+          <br>- Die Eingabe eines Gebirges per Marker funktiniert, aber nicht ideal
+          <br>- Die Tabelle, die Informationen über die Gebirge anzeigt vertauscht die Wikipedia-Artikel oft
+          <br>- Tests sind nicht vorhanden
+      </p>
+
+  </div>
+</section>
+
+    </div>
+
+    <footer class="page-footer font-small blue">
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3 card-footer">© 2022 Copyright: Arne Wilberg, Kieran Galbraith
+      </div>
+      <!-- Copyright -->
+    </footer>
+
+    
+</body>
+
+</html>
